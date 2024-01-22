@@ -1,5 +1,16 @@
 # database-notes
 ## GENERAL
+### concatination
+all except sqlserver
+```sql
+ SELECT 'Hello' || 'World' || '!'; --returns HelloWorld!
+```
+all
+```sql
+ SELECT CONCAT('Hello', 'World', '!'); --returns 'HelloWorld!'
+```
+### string aggregation
+string_agg in postgres
 ### Clustered, Unique, and Sorted Indexes
 ```sql
  CREATE CLUSTERED INDEX ix_clust_employee_id ON Employees(EmployeeId, Email);
