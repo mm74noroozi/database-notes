@@ -15,6 +15,8 @@ run
 ```sql
 SELECT DIGEST('hello_world', 'sha256') AS hashed_value;
 ```
+### search_path
+In PostgreSQL, the search_path is a configuration parameter that determines the order in which schemas are searched when an unqualified table or schema name is referenced in a SQL statement. It essentially defines the set of schemas that PostgreSQL should look into to resolve object references.
 ### counting users by name
 ```sql
 create table users(
