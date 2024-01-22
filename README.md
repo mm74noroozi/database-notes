@@ -98,4 +98,9 @@ FROM sales_data;
 ```
 This will return the slope of the regression line, indicating the change in sales for a one-unit change in advertising expenses.
 ## SQLSERVER
-sqlserver related topics
+### Partial or Filtered Index
+```sql
+CREATE INDEX Started_Orders
+ ON orders(product_id)
+ WHERE order_state_id = 1;
+```
