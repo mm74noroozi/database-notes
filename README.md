@@ -10,7 +10,7 @@ all
  SELECT CONCAT('Hello', 'World', '!'); --returns 'HelloWorld!'
 ```
 ### string aggregation
-- string_agg in postgres
+- postgres
 ```sql
 SELECT ColumnA
      , STRING_AGG(ColumnB, ',' ORDER BY ColumnB) AS ColumnBs
@@ -34,7 +34,6 @@ SELECT ColumnA
  GROUP BY ColumnA
  ORDER BY ColumnA;
 ```
-- 
 ### STRING_SPLIT
 ```sql
  SELECT value FROM STRING_SPLIT('Lorem ipsum dolor sit amet.', ' ');
