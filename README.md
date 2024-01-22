@@ -17,6 +17,10 @@ SELECT DIGEST('hello_world', 'sha256') AS hashed_value;
 ```
 ### search_path
 In PostgreSQL, the search_path is a configuration parameter that determines the order in which schemas are searched when an unqualified table or schema name is referenced in a SQL statement. It essentially defines the set of schemas that PostgreSQL should look into to resolve object references.
+### DEFERRABLE INITIALLY DEFERRED
+1. DEFERRABLE: This clause indicates that a constraint (in this case, a foreign key constraint) can be deferred. When a constraint is deferrable, it means that the database can check the constraint at the end of the transaction rather than immediately when the data is modified. This can be useful in certain situations where you need to temporarily violate a constraint within a transaction but ensure that it is satisfied by the end of the transaction.
+
+2. INITIALLY DEFERRED: This further refines the deferrable constraint, specifying that the constraint is initially checked at the end of the transaction. In other words, when a transaction begins, the database allows the foreign key constraint to be violated temporarily, and the actual check is deferred until the end of the transaction.
 ### counting users by name
 ```sql
 create table users(
