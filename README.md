@@ -61,5 +61,11 @@ WHEN NOT MATCHED BY TARGET
 WHEN NOT MATCHED BY SOURCE
     THEN DELETE;
 ```
+### regr_slope
+```sql
+SELECT regr_slope(sales, advertising) AS slope
+FROM sales_data;
+```
+This will return the slope of the regression line, indicating the change in sales for a one-unit change in advertising expenses.
 ## SQLSERVER
 sqlserver related topics
