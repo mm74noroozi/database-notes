@@ -10,7 +10,31 @@ all
  SELECT CONCAT('Hello', 'World', '!'); --returns 'HelloWorld!'
 ```
 ### string aggregation
-string_agg in postgres
+- string_agg in postgres
+```sql
+SELECT ColumnA
+     , STRING_AGG(ColumnB, ',' ORDER BY ColumnB) AS ColumnBs
+  FROM TableName
+ GROUP BY ColumnA
+ ORDER BY ColumnA;
+```
+- sql server
+```sql
+SELECT ColumnA
+     , STRING_AGG(ColumnB, ',') WITHIN GROUP (ORDER BY ColumnB) AS ColumnBs
+  FROM TableName
+ GROUP BY ColumnA
+ ORDER BY ColumnA;
+```
+- mysql
+```sql
+SELECT ColumnA
+ , GROUP_CONCAT(ColumnB ORDER BY ColumnB SEPARATOR ',') AS ColumnBs
+ FROM TableName
+ GROUP BY ColumnA
+ ORDER BY ColumnA;
+```
+- 
 ### STRING_SPLIT
 ```sql
  SELECT value FROM STRING_SPLIT('Lorem ipsum dolor sit amet.', ' ');
