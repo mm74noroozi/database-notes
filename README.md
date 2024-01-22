@@ -1,5 +1,11 @@
 # database-notes
 ## GENERAL
+### Clustered, Unique, and Sorted Indexes
+```sql
+ CREATE CLUSTERED INDEX ix_clust_employee_id ON Employees(EmployeeId, Email);
+ CREATE UNIQUE INDEX uq_customers_email ON Customers(Email);
+ CREATE INDEX ix_eid_desc ON Customers(EmployeeID Desc); 
+```
 ### cross apply and outer apply
 - The CROSS APPLY operator is used to invoke a table-valued function for each row returned by the outer table expression.
 - The OUTER APPLY operator is similar to CROSS APPLY, but it returns all rows from the outer table expression, even if there is no match with the table-valued function.
