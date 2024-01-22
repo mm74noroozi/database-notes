@@ -6,6 +6,15 @@ general subjects
 postgresql related topics
 ### geometery datatypes and functions
 https://www.postgresql.org/docs/8.2/functions-geometry.html
+### hash and crypto
+install
+```sql
+CREATE EXTENSION IF NOT EXISTS pgcrypto;
+```
+run
+```sql
+SELECT DIGEST('hello_world', 'sha256') AS hashed_value;
+```
 ### counting users by name
 ```sql
 create table users(
