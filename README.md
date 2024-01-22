@@ -1,5 +1,6 @@
 # database-notes
 ## GENERAL
+### triggers
 ### concatination
 all except sqlserver
 ```sql
