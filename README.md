@@ -6,6 +6,15 @@
  CREATE UNIQUE INDEX uq_customers_email ON Customers(Email);
  CREATE INDEX ix_eid_desc ON Customers(EmployeeID Desc); 
 ```
+###  Delete All But Last Record (1 to Many Table)
+```sql
+WITH cte AS (
+ SELECT ProjectID,
+ ROW_NUMBER() OVER (PARTITION BY ProjectID ORDER BY InsertDate DESC) AS rn
+ FROM ProjectNotes
+ )
+ DELETE FROM cte WHERE rn > 1;
+```
 ### cross apply and outer apply
 - The CROSS APPLY operator is used to invoke a table-valued function for each row returned by the outer table expression.
 - The OUTER APPLY operator is similar to CROSS APPLY, but it returns all rows from the outer table expression, even if there is no match with the table-valued function.
