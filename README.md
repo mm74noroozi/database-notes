@@ -1,7 +1,37 @@
 # database-notes
 ## GENERAL
-general subjects
-
+### cross apply and outer apply
+- The CROSS APPLY operator is used to invoke a table-valued function for each row returned by the outer table expression.
+- The OUTER APPLY operator is similar to CROSS APPLY, but it returns all rows from the outer table expression, even if there is no match with the table-valued function.
+```sql
+CREATE FUNCTION dbo.fn_GetAllEmployeeOfADepartment (@DeptID AS int)
+RETURNS TABLE
+AS
+RETURN
+(
+SELECT
+*
+FROM Employee E
+WHERE E.DepartmentID = @DeptID
+)
+GO
+```
+and
+```sql
+SELECT
+*
+FROM Department D
+CROSS APPLY dbo.fn_GetAllEmployeeOfADepartment(D.DepartmentID)
+GO
+```
+or
+```sql
+SELECT
+*
+FROM Department D
+OUTER APPLY dbo.fn_GetAllEmployeeOfADepartment(D.DepartmentID)
+GO
+```
 ## PostgreSQL
 postgresql related topics
 ### geometery datatypes and functions
