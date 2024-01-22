@@ -11,6 +11,10 @@ all
 ```
 ### string aggregation
 string_agg in postgres
+### STRING_SPLIT
+```sql
+ SELECT value FROM STRING_SPLIT('Lorem ipsum dolor sit amet.', ' ');
+```
 ### Clustered, Unique, and Sorted Indexes
 ```sql
  CREATE CLUSTERED INDEX ix_clust_employee_id ON Employees(EmployeeId, Email);
